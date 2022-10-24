@@ -1,3 +1,16 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root #development.envで記載したユーザ名
+  password: <%= ENV["MYSQL_ROOT_PASSWORD"] %>
+  socket: /tmp/mysql.sock
+  host: db
+
+development:
+  <<: *default
+  database: portfolio_app_development  # development.envで記載したデータベース名
+
 # SQLite. Versions 3.8.0 and up are supported.
 #   gem install sqlite3
 #
@@ -6,15 +19,15 @@
 #
 
 
-development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: portfolio_development
-  pool: 5
-  username: root
-  password: zerozeros2
-  host: localhost
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   database: portfolio_development
+#   pool: 5
+#   username: root
+#   password: zerozeros2
+#   host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -38,3 +51,4 @@ production:
   username: root
   password: zerozeros2
   host: localhost
+
