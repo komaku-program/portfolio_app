@@ -27,7 +27,6 @@ services:
     # stdin_open, ttyは`pry-byebug`を使用するために記述
     stdin_open: true
     tty: true
-    command: bundle exec rails server -b 0.0.0.0
     
 volumes:
   dbvolume:
